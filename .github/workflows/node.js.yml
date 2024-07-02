@@ -29,6 +29,7 @@ jobs:
     - run: npm ci
     - run: npm i @angular/cli
     - run: rm -rf docs
+    - run: mkdir docs
     - run: npm run build --if-present --prod
     - run: rm -rf docs/server
     - run: mv dist/mpf-po-config/browser/* docs
