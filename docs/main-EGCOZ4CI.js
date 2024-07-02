@@ -168,4 +168,4 @@ ${r.map((n,o)=>`${o+1}) ${n.toString()}`).join(`
       background: var(--red-to-pink-to-purple-horizontal-gradient);
       margin-block: 1.5rem;
     }
-  }`]});let e=t;return e})();var ih={production:!0,baseUrl:"https://fthorntonai.github.io/phitrai-api-dev/",clientId:"15a472fd-cfb5-48e7-aae0-418802be3eb1"};var sh=(()=>{let t=class t{};t.\u0275fac=function(o){return new(o||t)},t.\u0275mod=Ee({type:t,bootstrap:[oh]}),t.\u0275inj=Ie({providers:[{provide:jo,useValue:ih.baseUrl}],imports:[ff,rh]});let e=t;return e})();df().bootstrapModule(sh).catch(e=>console.error(e));
+  }`]});let e=t;return e})();var ih={production:!0,baseUrl:"https://fthorntonai.github.io/mpf-po-config/",clientId:"15a472fd-cfb5-48e7-aae0-418802be3eb1"};var sh=(()=>{let t=class t{};t.\u0275fac=function(o){return new(o||t)},t.\u0275mod=Ee({type:t,bootstrap:[oh]}),t.\u0275inj=Ie({providers:[{provide:jo,useValue:ih.baseUrl}],imports:[ff,rh]});let e=t;return e})();df().bootstrapModule(sh).catch(e=>console.error(e));
