@@ -14,6 +14,7 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
+import { NzStepsModule } from 'ng-zorro-antd/steps';
 
 registerLocaleData(en);
 
@@ -27,6 +28,7 @@ registerLocaleData(en);
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
+    NzStepsModule,
     FormsModule
   ],
   providers: [ {provide: APP_BASE_HREF, useValue: environment.baseUrl}, { provide: NZ_I18N, useValue: en_US }, provideAnimationsAsync(), provideHttpClient()],

@@ -1,0 +1,44 @@
+<nz-row nzGutter="32">
+  <nz-col [nzSpan]="12">
+    <nz-statistic [nzValue]=" (contractDetailForm.controls.contractAmount.value| number)!" [nzTitle]="'Offer Value'"></nz-statistic>
+  </nz-col> <nz-col [nzSpan]="12">
+    <nz-statistic [nzValue]="(contractDetailForm.controls.offerDuration.value| number)! +' mos.'" [nzTitle]="'Offer Duration'"></nz-statistic>
+  </nz-col>
+</nz-row>
+<nz-row nzGutter="32">
+  <form nz-form [nzLayout]="'inline'" [formGroup]="contractDetailForm" (ngSubmit)="submitForm()">
+    <nz-row [nzGutter]="16"> 
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your username!">
+          <nz-input-group nzPrefixIcon="dollar">
+            <input formControlName="contractAmount" nz-input placeholder="Contract Amount" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <nz-input-group nzPrefixIcon="retweet">
+            <input formControlName="offerDuration" nz-input placeholder="Contract Terms" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+    
+    </nz-row>
+
+    <nz-row [nzGutter]="16">
+      <nz-form-item>
+        <nz-range-picker [nzRanges]="ranges"></nz-range-picker>
+
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <nz-input-group nzPrefixIcon="fund">
+            <input formControlName="paymentAmound" nz-input placeholder="Payment Amound" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+    
+    </nz-row>
+   
+  </form>
+</nz-row>
