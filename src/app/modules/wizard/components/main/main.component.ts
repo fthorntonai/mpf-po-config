@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewContainerRef, ViewChild, AfterViewChecked, OnDestroy, viewChild, TemplateRef, ChangeDetectorRef, AfterContentInit, AfterContentChecked, AfterViewInit } from '@angular/core';
 import { DetailsFormComponent } from '../details-form/details-form.component';
-
+import { environment } from '../../../../../environments/environment';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -19,6 +19,7 @@ export class MainComponent implements AfterViewInit  {
   private currentIndex = 1;
 
   constructor(private cd: ChangeDetectorRef) {
+    console.log(environment.baseUrl);
    }
   ngAfterViewInit(): void {
     this.addDetailComponent();
