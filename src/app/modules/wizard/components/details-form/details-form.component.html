@@ -11,14 +11,19 @@
       <nz-form-item>
         <nz-form-control nzErrorTip="Please input your username!">
           <nz-input-group nzPrefixIcon="dollar">
-            <input formControlName="contractAmount" nz-input placeholder="Contract Amount" />
+            <input id="contractAmount" formControlName="contractAmount" nz-input placeholder="Contract Amount" value="$0.00" />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-control nzErrorTip="Please input your Password!">
+        <nz-form-control nzErrorTip="Please select Contract Term!">
           <nz-input-group nzPrefixIcon="retweet">
-            <input formControlName="offerDuration" nz-input placeholder="Contract Terms" />
+            <nz-select formControlName="offerDuration" id="contractTerms" nzShowSearch nzAllowClear nzPlaceHolder="Select a Contract Terms" nzBorderless >
+              <nz-option nzLabel="1 Year" nzValue="12"></nz-option>
+              <nz-option nzLabel="2 Year" nzValue="24"></nz-option>
+              <nz-option nzLabel="3 Year" nzValue="36"></nz-option>
+              <nz-option nzLabel="Other" nzValue="37"></nz-option>
+            </nz-select>
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
@@ -27,13 +32,13 @@
 
     <nz-row [nzGutter]="16">
       <nz-form-item>
-        <nz-range-picker [nzRanges]="ranges"></nz-range-picker>
+        <nz-range-picker id="dateRange" formControlName="range" [nzRanges]="ranges" onchange="onChange($event)" ></nz-range-picker>
 
       </nz-form-item>
       <nz-form-item>
         <nz-form-control nzErrorTip="Please input your Password!">
           <nz-input-group nzPrefixIcon="fund">
-            <input formControlName="paymentAmount" nz-input placeholder="Payment Amound" />
+            <input id="paymentAmount" formControlName="paymentAmount" nz-input placeholder="Payment Amount" />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
@@ -45,4 +50,9 @@
     </nz-row>
    
   </form>
+</nz-row>
+<nz-row>
+  <nz-input-group [nzSuffix]="">
+    <textarea rows="15" id="contractDetailsValue" formControlName="comment" nz-input [value]="(contractDetailForm.value | json)"></textarea>
+  </nz-input-group>
 </nz-row>

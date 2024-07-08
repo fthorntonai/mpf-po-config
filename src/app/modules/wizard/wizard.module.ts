@@ -12,6 +12,8 @@ import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     NzStepsModule,
+    NzSelectModule,
     NzFormModule,
     NzGridModule,
     NzInputModule,

@@ -11,16 +11,25 @@ export class DetailsFormComponent {
 
   ranges = { Today: [new Date(), new Date()], 'This Month': [new Date(), endOfMonth(new Date())] };
 
+  inputValue: string | null = null;
+  textValue: string | null = null;
+
   contractDetailForm: FormGroup<{
     contractAmount: FormControl<string>;
     offerDuration: FormControl<string>;
     startDate: FormControl<string>;
+    endDate: FormControl<string>;
     paymentAmount: FormControl<string>;
+    range:FormControl<string>;
+ //   jsonView:FormControl<string>;
   }> = this.fb.group({
-    contractAmount: ['', [Validators.required]],
-    offerDuration: ['', [Validators.required]],
+    contractAmount: ['0', [Validators.required]],
+    offerDuration: ['36', [Validators.required]],
     startDate: ['',[Validators.required]],
-    paymentAmount:['',[Validators.required]]
+    endDate:['',[Validators.required]],
+    paymentAmount:['',[Validators.required]],
+    range:['',[Validators.required]],
+//    jsonView:['',[Validators.required]]
   });
  
   onChange(result: Date): void {
