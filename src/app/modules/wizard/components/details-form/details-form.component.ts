@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { endOfMonth } from 'date-fns';
+import { Observable } from 'rxjs';
+import { increment,decrement,reset } from '../../../../state/counter.actions';
 
 @Component({
   selector: 'app-details-form',
@@ -8,6 +11,7 @@ import { endOfMonth } from 'date-fns';
   styleUrl: './details-form.component.scss'
 })
 export class DetailsFormComponent {
+  count$: Observable<number>
 
   ranges = { Today: [new Date(), new Date()], 'This Month': [new Date(), endOfMonth(new Date())] };
 
@@ -41,6 +45,20 @@ export class DetailsFormComponent {
   formatterDollar = (value: number): string => `$ ${value}`;
 
 
-  constructor(private fb: NonNullableFormBuilder) {}
+  increment() {
+    this.store.dispatch(increment());
+  }
+
+  decrement() {
+    this.store.dispatch(decrement());
+  }
+
+  reset() {
+    this.store.dispatch(reset());
+  }
+
+  constructor(private fb: NonNullableFormBuilder, private store: Store<{ count: number }>) {
+    this.count$ = store.select('count');
+  }
 
 }

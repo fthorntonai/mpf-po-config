@@ -56,3 +56,12 @@
     <textarea rows="15" id="contractDetailsValue" formControlName="comment" nz-input [value]="(contractDetailForm.value | json)"></textarea>
   </nz-input-group>
 </nz-row>
+<nz-row>
+<button (click)="increment()">Increment</button>
+
+<div>Current Count:* {{ count$ | async }}*</div>
+
+<button (click)="decrement()">Decrement</button>
+
+<button (click)="reset()">Reset Counter</button>
+</nz-row>
