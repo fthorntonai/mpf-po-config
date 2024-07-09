@@ -18,7 +18,7 @@
       <nz-form-item>
         <nz-form-control nzErrorTip="Please select Contract Term!">
           <nz-input-group nzPrefixIcon="retweet">
-            <nz-select formControlName="offerDuration" id="contractTerms" nzShowSearch nzAllowClear nzPlaceHolder="Select a Contract Terms" nzBorderless >
+            <nz-select formControlName="offerDuration" id="contractTerms"  nzShowSearch nzAllowClear nzPlaceHolder="Select a Contract Terms" nzBorderless >
               <nz-option nzLabel="1 Year" nzValue="12"></nz-option>
               <nz-option nzLabel="2 Year" nzValue="24"></nz-option>
               <nz-option nzLabel="3 Year" nzValue="36"></nz-option>
@@ -64,4 +64,7 @@
 <button (click)="decrement()">Decrement</button>
 
 <button (click)="reset()">Reset Counter</button>
+</nz-row>
+<nz-row>
+  <div>Current Count:* {{ privateOffer$ | async | json }}*</div>
 </nz-row>

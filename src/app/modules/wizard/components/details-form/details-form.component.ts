@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { endOfMonth } from 'date-fns';
 import { Observable } from 'rxjs';
 import { increment,decrement,reset } from '../../../../state/counter.actions';
+import { initializeState } from '../../../../state/private-offer.action';
 
 @Component({
   selector: 'app-details-form',
@@ -11,7 +12,8 @@ import { increment,decrement,reset } from '../../../../state/counter.actions';
   styleUrl: './details-form.component.scss'
 })
 export class DetailsFormComponent {
-  count$: Observable<number>
+  count$: Observable<number>;
+  privateOffer$: Observable<object>;
 
   ranges = { Today: [new Date(), new Date()], 'This Month': [new Date(), endOfMonth(new Date())] };
 
@@ -28,7 +30,7 @@ export class DetailsFormComponent {
  //   jsonView:FormControl<string>;
   }> = this.fb.group({
     contractAmount: ['0', [Validators.required]],
-    offerDuration: ['36', [Validators.required]],
+    offerDuration: ['12', [Validators.required]],
     startDate: ['',[Validators.required]],
     endDate:['',[Validators.required]],
     paymentAmount:['',[Validators.required]],
@@ -57,8 +59,10 @@ export class DetailsFormComponent {
     this.store.dispatch(reset());
   }
 
-  constructor(private fb: NonNullableFormBuilder, private store: Store<{ count: number }>) {
+  constructor(private fb: NonNullableFormBuilder, private store: Store<{ count: number,privateOffer:object }>) {
     this.count$ = store.select('count');
+    this.store.dispatch(initializeState({data: this.contractDetailForm.value}));
+    this.privateOffer$ = store.select('privateOffer');
   }
 
 }

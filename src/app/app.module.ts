@@ -17,6 +17,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { NzStepsModule } from 'ng-zorro-antd/steps';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './state/counter.reducer';
+import { privateOfferReducer } from './state/private-offer.reducer';
 registerLocaleData(en);
 
 @NgModule({
@@ -25,7 +26,7 @@ registerLocaleData(en);
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({count:counterReducer}),
+    StoreModule.forRoot({count:counterReducer,privateOffer:privateOfferReducer}),
     AppRoutingModule,
     IconsProviderModule,
     NzLayoutModule,
