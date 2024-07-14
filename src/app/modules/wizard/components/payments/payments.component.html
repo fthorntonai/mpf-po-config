@@ -1,0 +1,5 @@
+<div class="btn-wrapper" nz-flex [nzGap]="'middle'" [nzWrap]="'wrap'">
+    @for (_ of array; track _) {
+      <button style="width: 100px" nz-button nzType="primary">Payment {{ _ }}</button>
+    }
+  </div>

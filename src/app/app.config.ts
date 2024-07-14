@@ -31,7 +31,7 @@ import {
     MsalBroadcastService,
   } from '@azure/msal-angular';
   import { environment } from '../environments/environment';
-  import { MatButtonModule } from '@angular/material/button';
+  import * as button from '@angular/material/button';
   import { MatMenuModule } from '@angular/material/menu';
   import { MatToolbarModule } from '@angular/material/toolbar';
   import { MatListModule } from '@angular/material/list';
@@ -92,7 +92,7 @@ import { AppRoutingModule, routes } from './app-routing.module';
       provideRouter(routes),
       importProvidersFrom(
         BrowserModule,
-        MatButtonModule,
+        button.MatButtonModule,
         MatToolbarModule,
         MatListModule,
         MatMenuModule

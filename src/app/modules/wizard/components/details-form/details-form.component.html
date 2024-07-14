@@ -5,8 +5,9 @@
     <nz-statistic [nzValue]="(contractDetailForm.controls.offerDuration.value| number)! +' mos.'" [nzTitle]="'Offer Duration'"></nz-statistic>
   </nz-col>
 </nz-row>
+<form nz-form [nzLayout]="'inline'" [formGroup]="contractDetailForm" (ngSubmit)="submitForm()" (valueChanges)="onChange($event)" >
+
 <nz-row nzGutter="32">
-  <form nz-form [nzLayout]="'inline'" [formGroup]="contractDetailForm" (ngSubmit)="submitForm()">
     <nz-row [nzGutter]="16"> 
       <nz-form-item>
         <nz-form-control nzErrorTip="Please input your username!">
@@ -18,7 +19,8 @@
       <nz-form-item>
         <nz-form-control nzErrorTip="Please select Contract Term!">
           <nz-input-group nzPrefixIcon="retweet">
-            <nz-select formControlName="offerDuration" id="contractTerms"  nzShowSearch nzAllowClear nzPlaceHolder="Select a Contract Terms" nzBorderless >
+            <nz-select formControlName="offerDuration" id="contractTerms" (nzOpenChange)="onChange($event)"  nzPlaceHolder="Select a Contract Terms" nzBorderless >
+              <nz-option nzLabel="Select Offer Duration" nzValue="0"></nz-option>
               <nz-option nzLabel="1 Year" nzValue="12"></nz-option>
               <nz-option nzLabel="2 Year" nzValue="24"></nz-option>
               <nz-option nzLabel="3 Year" nzValue="36"></nz-option>
@@ -49,13 +51,14 @@
 
     </nz-row>
    
-  </form>
 </nz-row>
 <nz-row>
   <nz-input-group [nzSuffix]="">
-    <textarea rows="15" id="contractDetailsValue" formControlName="comment" nz-input [value]="(contractDetailForm.value | json)"></textarea>
+    <textarea rows="15" id="contractDetailsValue"  nz-input [value]="(contractDetailForm.value | json)"></textarea>
   </nz-input-group>
 </nz-row>
+</form>
+
 <!--nz-row>
 <button (click)="increment()">Increment</button>
 
@@ -66,5 +69,5 @@
 <button (click)="reset()">Reset Counter</button>
 </nz-row-->
 <nz-row>
-  <div>Current Count:* {{ privateOffer$ | async | json }}*</div>
+  <div>Current data: {{ ((privateOffer$ | async) | json) }}</div>
 </nz-row>

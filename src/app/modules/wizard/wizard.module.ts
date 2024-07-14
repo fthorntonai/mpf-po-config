@@ -14,11 +14,14 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import {FormsModule} from '@angular/forms';
+import { PaymentsComponent } from './components/payments/payments.component';
+import { NzFlexModule } from 'ng-zorro-antd/flex';
 
 @NgModule({
   declarations: [
     MainComponent,
-    DetailsFormComponent
+    DetailsFormComponent,
+    PaymentsComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,7 @@ import {FormsModule} from '@angular/forms';
     NzInputModule,
     NzStatisticModule,
     NzDividerModule,
+    NzFlexModule,
     NzDatePickerModule,
     NzInputNumberModule,
     WizardRoutingModule,

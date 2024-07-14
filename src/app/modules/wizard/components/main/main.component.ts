@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewContainerRef, ViewChild, AfterViewChecked, OnDestroy, viewChild, TemplateRef, ChangeDetectorRef, AfterContentInit, AfterContentChecked, AfterViewInit } from '@angular/core';
 import { DetailsFormComponent } from '../details-form/details-form.component';
 import { environment } from '../../../../../environments/environment';
+import { PaymentsComponent } from '../payments/payments.component';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -19,7 +20,6 @@ export class MainComponent implements AfterViewInit  {
   private currentIndex = 1;
 
   constructor(private cd: ChangeDetectorRef) {
-    console.log(environment.baseUrl);
    }
   ngAfterViewInit(): void {
     this.addDetailComponent();
@@ -37,6 +37,10 @@ export class MainComponent implements AfterViewInit  {
   addDetailComponent() {
 
     const componentRef = this.viewContainerRef?.createComponent(DetailsFormComponent);
+  }
+  addPaymentComponent(){
+    const componentRef = this.viewContainerRef?.createComponent(PaymentsComponent);
+
   }
   current = 0;
 
@@ -57,13 +61,14 @@ export class MainComponent implements AfterViewInit  {
   }
 
   changeContent(): void {
+    this.viewContainerRef?.clear();
     switch (this.current) {
       case 0: {
-        this.index = 'First-content';
+        this.addDetailComponent();
         break;
       }
       case 1: {
-        this.index = 'Second-content';
+        this.addPaymentComponent();
         break;
       }
       case 2: {
