@@ -70,6 +70,7 @@ export class DetailsFormComponent implements AfterContentInit {
   }
   ngAfterContentInit(): void {
     this.privateOffer$ = this.store.select('privateOffer');
+    console.log(this.privateOffer$);
     this.privateOffer$.pipe(map((i)=>{
       this.contractDetailForm.setValue(JSON.parse(JSON.stringify(i))['offer']);
     })).subscribe(); }

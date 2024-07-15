@@ -22,7 +22,6 @@ export class PaymentsComponent implements AfterContentInit {
   }
   ngAfterContentInit(): void {
     this.array = Array.from({ length: this.paymentCount }, (_, index) => index + 1);
-    console.log(this.paymentCount);
 
   }
   ngOnInit(): void {
