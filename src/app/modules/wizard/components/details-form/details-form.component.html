@@ -53,9 +53,16 @@
       </nz-form-control>
     </nz-form-item></div></div>
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"><nz-form-item>
-      <nz-form-control nzErrorTip="Please input your Password!">
-        <nz-input-group nzPrefixIcon="fund">
-          <input id="paymentAmount" formControlName="paymentAmount" nz-input placeholder="Payment Amount" />
+      <nz-form-control nzErrorTip="First Invoice">
+        <nz-input-group nzPrefixIcon="retweet">
+          <nz-select formControlName="firstInvoice" id="firstInvoice" (nzOpenChange)="onChange($event)"
+            nzPlaceHolder="Select First Invoice" nzBorderless>
+            <nz-option nzLabel="Select First Invoice" nzValue="0"></nz-option>
+            <nz-option nzLabel="Upon Purchase" nzValue="uponPurchase"></nz-option>
+            <nz-option nzLabel="Delayed" nzValue="delayed"></nz-option>
+            <nz-option nzLabel="Monthly" nzValue="month"></nz-option>
+            <nz-option nzLabel="Yearly" nzValue="year"></nz-option>
+          </nz-select>
         </nz-input-group>
       </nz-form-control>
     </nz-form-item></div></div>
