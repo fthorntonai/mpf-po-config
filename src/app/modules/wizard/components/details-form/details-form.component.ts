@@ -22,6 +22,8 @@ export class DetailsFormComponent implements AfterContentInit {
 
   contractDetailForm: FormGroup<{
     contractAmount: FormControl<string>;
+    numberOfPayments: FormControl<number>;
+    paymentFrequency: FormControl<string>;
     offerDuration: FormControl<string>;
     startDate: FormControl<string>;
     endDate: FormControl<string>;
@@ -30,6 +32,8 @@ export class DetailsFormComponent implements AfterContentInit {
     jsonView:FormControl<string>;
   }> = this.fb.group({
     contractAmount: ['0', [Validators.required]],
+    numberOfPayments:[1,[Validators.required]],
+    paymentFrequency:['',[Validators.required]],
     offerDuration: ['0', [Validators.required]],
     startDate: ['',[Validators.required]],
     endDate:['',[Validators.required]],

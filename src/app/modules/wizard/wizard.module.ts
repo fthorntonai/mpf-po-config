@@ -16,12 +16,14 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import {FormsModule} from '@angular/forms';
 import { PaymentsComponent } from './components/payments/payments.component';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
+import { RecommendedConfigurationComponent } from './components/recommended-configuration/recommended-configuration.component';
 
 @NgModule({
   declarations: [
     MainComponent,
     DetailsFormComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    RecommendedConfigurationComponent
   ],
   imports: [
     CommonModule,

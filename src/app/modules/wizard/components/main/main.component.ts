@@ -2,6 +2,9 @@ import { Component, OnInit, ViewContainerRef, ViewChild, AfterViewChecked, OnDes
 import { DetailsFormComponent } from '../details-form/details-form.component';
 import { environment } from '../../../../../environments/environment';
 import { PaymentsComponent } from '../payments/payments.component';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { RecommendedConfigurationComponent } from '../recommended-configuration/recommended-configuration.component';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -18,9 +21,14 @@ export class MainComponent implements AfterViewInit  {
 
   private interval: number | undefined;
   private currentIndex = 1;
+  privateOffer$: Observable<object>;
 
-  constructor(private cd: ChangeDetectorRef) {
-   }
+
+  constructor(private cd: ChangeDetectorRef, private store: Store<{ count: number,privateOffer:object }>) {
+    this.privateOffer$ = this.store.select('privateOffer');
+
+    
+  }
   ngAfterViewInit(): void {
     this.addDetailComponent();
     this.cd.detectChanges();
@@ -40,6 +48,10 @@ export class MainComponent implements AfterViewInit  {
   }
   addPaymentComponent(){
     const componentRef = this.viewContainerRef?.createComponent(PaymentsComponent);
+
+  }
+  addRecConfgComponent(){
+    const componentRef = this.viewContainerRef?.createComponent(RecommendedConfigurationComponent);
 
   }
   current = 0;
@@ -68,7 +80,7 @@ export class MainComponent implements AfterViewInit  {
         break;
       }
       case 1: {
-        this.addPaymentComponent();
+        this.addRecConfgComponent();
         break;
       }
       case 2: {

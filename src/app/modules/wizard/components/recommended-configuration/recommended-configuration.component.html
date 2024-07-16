@@ -1,0 +1,34 @@
+<h1>Recommend Configuration</h1> <a href="">Download PDF</a>
+<nz-divider></nz-divider>
+<nz-divider nzOrientation="left" nzText="Pre-requisites"></nz-divider>
+<nz-row>
+    A published offer with public plan and the plan must have a &amp;paymentFrequency pricing.
+
+</nz-row>
+
+<nz-divider nzOrientation="left" nzText="Recommendations"></nz-divider>
+<ul dir="auto">
+    <li>Model this deal with a single private offers, create a private offer on the same public plan (&#64;term term).
+    Note, this example assumes customer will subscribe in &#64;thisMonth &#64;thisYear.
+    &nbsp;
+    Private Offer #1 for the first year
+    <ul dir="auto">
+    <li>Start date: &#64;thisMonth + "’" + thisYear or Accepted date</li>
+    <li>End date: &#64;thisMonth + "’"  + (&#64;thisYear + (&#64;term * &#64;numberOfPayments)</li>
+    <li>Billing term</li>
+    <li>Price per payment: &#64;totalAmount / &#64;numberOfPayments</li>
+    </ul>
+    </li>
+    </ul>
+<nz-divider nzOrientation="left" nzText="Customer Actions"></nz-divider>
+<ul dir="auto">
+    <li>Customer will need to:
+    <ul dir="auto">
+    <li>Accept the private offers to lock the price for the &#64;numberOfPayments + &#64;term.</li>
+    </ul>
+    </li>
+    <li>Subscribe (purchase) the product once using the &#64;term term.</li>
+    <li>Customer will be charged $&#64;contractTotal</li>
+    <li>At the end of the &#64;numberOfPayments + &#64;term, ISV will need to set up a new private offer on the same public plan or customer will fall back to the list price. Alternatively, Customer should switch off auto-renew if they no longer want the product after the &#64;numberOfPayments + &#64;term.</li>
+    </ul>
+<!--nz-divider nzOrientation="left" nzText="Text"></nz-divider-->

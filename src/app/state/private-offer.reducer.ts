@@ -1,7 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
 import { addProperty, removeProperty,updateProperty, reset,initializeState, setState } from './private-offer.action';
 
-let baseObject = { "offer": { "contractAmount": "0", "offerDuration": "0", "startDate": "", "endDate": "", "paymentAmount": "", "range": "", "jsonView": "" } };
+let baseObject = { "offer": { "contractAmount": "0", "offerDuration": "0", "numberOfPayments":1 ,
+  "paymentFrequency": "", "startDate": "", "endDate": "", "paymentAmount": "", "range": "", "jsonView": "" } };
 export const initialState = baseObject ;
 
 export const privateOfferReducer = createReducer(
@@ -11,5 +12,6 @@ export const privateOfferReducer = createReducer(
  // on(addProperty, (state) => {return  JSON.parse(JSON.stringify(state))['property'] = 'test'}),
  // on(updateProperty, (state) => {return  JSON.parse(JSON.stringify(state))['property'] = 'test'}),
  // on(removeProperty, (state) => {return  JSON.parse(JSON.stringify(state))['property'] = 'test'}),
- on(reset, (state) =>{ return { "offer" :{ "contractAmount": "0", "offerDuration": "0", "startDate": "", "endDate": "", "paymentAmount": "", "range": "", "jsonView": "" }}})
+ on(reset, (state) =>{ return { "offer" :{ "contractAmount": "0", "offerDuration": "0","numberOfPayments":1 ,
+  "paymentFrequency": "", "startDate": "", "endDate": "", "paymentAmount": "", "range": "", "jsonView": "" }}})
 );

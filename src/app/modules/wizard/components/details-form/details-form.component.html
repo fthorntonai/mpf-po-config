@@ -1,22 +1,38 @@
-<nz-row nzGutter="32">
+<!--nz-row nzGutter="32">
   <nz-col [nzSpan]="12">
     <nz-statistic [nzValue]=" (contractDetailForm.controls.contractAmount.value| number)!" [nzTitle]="'Offer Value'"></nz-statistic>
   </nz-col> <nz-col [nzSpan]="12">
     <nz-statistic [nzValue]="(contractDetailForm.controls.offerDuration.value| number)! +' mos.'" [nzTitle]="'Offer Duration'"></nz-statistic>
   </nz-col>
+</nz-row-->
+<nz-row>
+<article nz-typography>
+  <h1 nz-typography>Private Offer Configuration Plan</h1>
+  <p nz-typography>
+    Private offer prescriptive configuration guidance based on your deal contract requirents
+  </p>
+</article>
 </nz-row>
+<hr>
 <form nz-form [nzLayout]="'inline'" [formGroup]="contractDetailForm" (ngSubmit)="submitForm()" (valueChanges)="onChange($event)" >
 
 <nz-row nzGutter="32">
     <nz-row [nzGutter]="16"> 
       <nz-form-item>
-        <nz-form-control nzErrorTip="Please input your username!">
+        <nz-form-control nzErrorTip="Please input your Contract Amount!">
           <nz-input-group nzPrefixIcon="dollar">
             <input id="contractAmount" formControlName="contractAmount" nz-input placeholder="Contract Amount" value="$0.00" />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Number of Payments!">
+          <nz-input-group nzPrefixIcon="number">
+            <input id="numberOfPayments" formControlName="numberOfPayments" nz-input placeholder="Number Of Payments" value="1" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <!--nz-form-item>
         <nz-form-control nzErrorTip="Please select Contract Term!">
           <nz-input-group nzPrefixIcon="retweet">
             <nz-select formControlName="offerDuration" id="contractTerms" (nzOpenChange)="onChange($event)"  nzPlaceHolder="Select a Contract Terms" nzBorderless >
@@ -24,6 +40,20 @@
               <nz-option nzLabel="1 Year" nzValue="12"></nz-option>
               <nz-option nzLabel="2 Year" nzValue="24"></nz-option>
               <nz-option nzLabel="3 Year" nzValue="36"></nz-option>
+              <nz-option nzLabel="Other" nzValue="37"></nz-option>
+            </nz-select>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item-->
+
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please select Payment Frequency">
+          <nz-input-group nzPrefixIcon="retweet">
+            <nz-select formControlName="paymentFrequency" id="paymentFrequency" (nzOpenChange)="onChange($event)"  nzPlaceHolder="Select a Contract Terms" nzBorderless >
+              <nz-option nzLabel="Select Payment Frequency" nzValue="0"></nz-option>
+              <nz-option nzLabel="One Time" nzValue="once"></nz-option>
+              <nz-option nzLabel="Monthly" nzValue="month"></nz-option>
+              <nz-option nzLabel="Yearly" nzValue="year"></nz-option>
               <nz-option nzLabel="Other" nzValue="37"></nz-option>
             </nz-select>
           </nz-input-group>
@@ -44,19 +74,21 @@
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
+    </nz-row>
+      <nz-row [nzGutter]="16">
+        <button nz-button nzType="primary">Generate Configuration Plan</button> &nbsp;  &nbsp; &nbsp;
+         <button nz-button nzType="primary">Clear Plan</button>
+        
+      </nz-row>
+     
     
-    </nz-row>
-    <nz-row>
-      <button nz-button nzType="primary">Calculate</button>
-
-    </nz-row>
-   
+    
 </nz-row>
-<nz-row>
+<!--nz-row>
   <nz-input-group [nzSuffix]="">
     <textarea rows="15" id="contractDetailsValue"  nz-input [value]="(contractDetailForm.value | json)"></textarea>
   </nz-input-group>
-</nz-row>
+</nz-row-->
 </form>
 
 <!--nz-row>
@@ -68,6 +100,3 @@
 
 <button (click)="reset()">Reset Counter</button>
 </nz-row-->
-<nz-row>
-  <div>Current data: {{ ((privateOffer$ | async) | json) }}</div>
-</nz-row>
