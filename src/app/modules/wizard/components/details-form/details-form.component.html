@@ -31,9 +31,9 @@
       </nz-form-control>
     </nz-form-item></div></div>
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"><nz-form-item>
-      <nz-form-control nzErrorTip="Please input your Number of Payments!">
-        <nz-input-group nzPrefixIcon="number">
-          <input id="numberOfPayments" formControlName="numberOfPayments" nz-input placeholder="Number Of Payments"
+      <nz-form-control nzErrorTip="Please input your Number of Payments!" (nzOpenChange)="onChange($event)">
+        <nz-input-group nzPrefixIcon="number" >
+          <input id="numberOfPayments" formControlName="numberOfPayments" (onChange)="onChange($event)"  nz-input placeholder="Number Of Payments"
             value="1" />
         </nz-input-group>
       </nz-form-control>

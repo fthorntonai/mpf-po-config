@@ -46,9 +46,7 @@ export class DetailsFormComponent implements AfterContentInit {
  
 
   onChange(event:any): void {
-    console.log('onChange: ', event);
-    this.store.dispatch(setState({offer: this.contractDetailForm.value}));
-    
+    this.store.dispatch(setState({offer: this.contractDetailForm.value}));    
   }
   submitForm(): void {
     console.log(this.contractDetailForm.value);
