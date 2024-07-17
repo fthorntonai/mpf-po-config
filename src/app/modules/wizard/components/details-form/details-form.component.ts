@@ -29,7 +29,7 @@ export class DetailsFormComponent implements AfterContentInit {
     endDate: FormControl<string>;
     paymentAmount: FormControl<string>;
     range:FormControl<string>;
-    firstInvoce:FormControl<string>;
+    firstInvoice:FormControl<string>;
     jsonView:FormControl<string>;
   }> = this.fb.group({
     contractAmount: ['0', [Validators.required]],
@@ -40,7 +40,7 @@ export class DetailsFormComponent implements AfterContentInit {
     endDate:['',[Validators.required]],
     paymentAmount:['',[Validators.required]],
     range:['',[Validators.required]],
-    firstInvoce:['',Validators.required],
+    firstInvoice:['',Validators.required],
     jsonView:['',[Validators.required]]
   });
  

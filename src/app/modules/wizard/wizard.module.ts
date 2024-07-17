@@ -17,6 +17,7 @@ import {FormsModule} from '@angular/forms';
 import { PaymentsComponent } from './components/payments/payments.component';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { RecommendedConfigurationComponent } from './components/recommended-configuration/recommended-configuration.component';
+import { NzTagModule } from 'ng-zorro-antd/tag';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { RecommendedConfigurationComponent } from './components/recommended-conf
     NzInputModule,
     NzStatisticModule,
     NzDividerModule,
+    NzTagModule,
     NzFlexModule,
     NzDatePickerModule,
     NzInputNumberModule,

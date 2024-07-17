@@ -2,21 +2,21 @@
 <nz-divider></nz-divider>
 <nz-divider nzOrientation="left" nzText="Pre-requisites"></nz-divider>
 <nz-row>
-    A published offer with public plan and the plan must have a &amp;paymentFrequency pricing.
+    A published offer with public plan and the plan must have a<nz-tag [nzColor]="'green'"> Payment Frequency</nz-tag>         <nz-tag [nzColor]="'blue'">    {{ _paymentFrequency}} </nz-tag> pricing.
 
 </nz-row>
 
 <nz-divider nzOrientation="left" nzText="Recommendations"></nz-divider>
 <ul dir="auto">
     <li>Model this deal with a single private offers, create a private offer on the same public plan (&#64;term term).
-    Note, this example assumes customer will subscribe in &#64;thisMonth &#64;thisYear.
+    Note, this example assumes customer will subscribe in the <nz-tag [nzColor]="'green'">Month</nz-tag>:<nz-tag [nzColor]="'blue'">{{ today | date:'MMM'}}</nz-tag> of <nz-tag [nzColor]="'green'">Year</nz-tag>:<nz-tag [nzColor]="'blue'">{{ today | date:'YYYY'}}</nz-tag>.
     &nbsp;
     Private Offer #1 for the first year
     <ul dir="auto">
-    <li>Start date: &#64;thisMonth + "’" + thisYear or Accepted date</li>
-    <li>End date: &#64;thisMonth + "’"  + (&#64;thisYear + (&#64;term * &#64;numberOfPayments)</li>
-    <li>Billing term</li>
-    <li>Price per payment: &#64;totalAmount / &#64;numberOfPayments</li>
+    <li><nz-tag [nzColor]="'green'">Start date</nz-tag>: <nz-tag [nzColor]="'blue'">{{ today | date:'MMM'}}</nz-tag> of <nz-tag [nzColor]="'blue'">{{ today | date:'YYYY'}}</nz-tag> or <nz-tag [nzColor]="'blue'">Accepted date</nz-tag></li>
+    <li><nz-tag [nzColor]="'green'" title="(&#64;thisYear + (&#64;term * &#64;numberOfPayments)">End date</nz-tag>: <nz-tag [nzColor]="'blue'">{{ today | date:'MMM'}}</nz-tag> of <nz-tag [nzColor]="'blue'">{{ endDateYear}}</nz-tag></li>
+    <li><nz-tag [nzColor]="'green'">Billing term</nz-tag>:<nz-tag [nzColor]="'blue'" title="">{{_billingTerm}}</nz-tag></li>
+    <li><nz-tag [nzColor]="'green'">Price per payment</nz-tag>: <nz-tag [nzColor]="'blue'" title="&#64;totalAmount / &#64;numberOfPayments">{{ _ppPayment}}</nz-tag></li>
     </ul>
     </li>
     </ul>
@@ -24,11 +24,11 @@
 <ul dir="auto">
     <li>Customer will need to:
     <ul dir="auto">
-    <li>Accept the private offers to lock the price for the &#64;numberOfPayments + &#64;term.</li>
+    <li>Accept the private offers to lock the price for the <nz-tag [nzColor]="'green'">numberOfPayments</nz-tag> + <nz-tag [nzColor]="'green'">term</nz-tag>.</li>
     </ul>
     </li>
-    <li>Subscribe (purchase) the product once using the &#64;term term.</li>
-    <li>Customer will be charged $&#64;contractTotal</li>
-    <li>At the end of the &#64;numberOfPayments + &#64;term, ISV will need to set up a new private offer on the same public plan or customer will fall back to the list price. Alternatively, Customer should switch off auto-renew if they no longer want the product after the &#64;numberOfPayments + &#64;term.</li>
+    <li>Subscribe (purchase) the product once using the <nz-tag [nzColor]="'green'">term</nz-tag> term.</li>
+    <li>Customer will be charged $<nz-tag [nzColor]="'green'">contractTotal</nz-tag></li>
+    <li>At the end of the <nz-tag [nzColor]="'green'">numberOfPayments</nz-tag> + <nz-tag [nzColor]="'green'">term</nz-tag>, ISV will need to set up a new private offer on the same public plan or customer will fall back to the list price. Alternatively, Customer should switch off auto-renew if they no longer want the product after the <nz-tag [nzColor]="'green'">numberOfPayments</nz-tag> + <nz-tag [nzColor]="'green'">term</nz-tag>.</li>
     </ul>
 <!--nz-divider nzOrientation="left" nzText="Text"></nz-divider-->
