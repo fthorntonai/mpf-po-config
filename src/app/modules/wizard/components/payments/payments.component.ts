@@ -26,7 +26,7 @@ export class PaymentsComponent implements AfterContentInit {
   }
   ngOnInit(): void {
     this.privateOffer$.pipe(map((i)=>{
-      this.paymentCount = JSON.parse(JSON.stringify(i))['offer']['offerDuration'];
+      this.paymentCount = JSON.parse(JSON.stringify(i))['offer']['numberOfPayments'];
     })).subscribe();
   }
 

@@ -18,6 +18,7 @@ import { PaymentsComponent } from './components/payments/payments.component';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { RecommendedConfigurationComponent } from './components/recommended-configuration/recommended-configuration.component';
 import { NzTagModule } from 'ng-zorro-antd/tag';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
     NzGridModule,
     NzInputModule,
     NzStatisticModule,
+    NzCheckboxModule,
     NzDividerModule,
     NzTagModule,
     NzFlexModule,

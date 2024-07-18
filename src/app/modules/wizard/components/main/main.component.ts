@@ -80,11 +80,11 @@ export class MainComponent implements AfterViewInit  {
         break;
       }
       case 1: {
-        this.addRecConfgComponent();
+        this.addPaymentComponent();
         break;
       }
       case 2: {
-        this.index = 'third-content';
+        this.addRecConfgComponent();
         break;
       }
       default: {

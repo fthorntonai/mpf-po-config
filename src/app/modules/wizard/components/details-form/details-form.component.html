@@ -95,7 +95,13 @@
       <nz-row-->
       
     </nz-row>
-    
+    <nz-row>
+      <div nz-row [nzGutter]="16">
+        <nz-col><label nz-checkbox formControlName="equal_payments"  [(ngModel)]="checked ">All Payment Amounts are Equal</label></nz-col>
+        <nz-col></nz-col>
+        <nz-col></nz-col>
+      </div>
+    </nz-row>
     <nz-row [nzGutter]="16">
       <button nz-button nzType="primary">Generate Configuration Plan</button> &nbsp; &nbsp; &nbsp;
       <button nz-button nzType="primary">Clear Plan</button>

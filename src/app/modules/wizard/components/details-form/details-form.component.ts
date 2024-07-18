@@ -14,7 +14,7 @@ import { initializeState, setState } from '../../../../state/private-offer.actio
 export class DetailsFormComponent implements AfterContentInit {
   count$: Observable<number>;
   privateOffer$: Observable<object>;
-
+  checked = true;
   ranges = { Today: [new Date(), new Date()], 'This Month': [new Date(), endOfMonth(new Date())] };
 
   inputValue: string | null = null;
@@ -31,6 +31,7 @@ export class DetailsFormComponent implements AfterContentInit {
     range:FormControl<string>;
     firstInvoice:FormControl<string>;
     jsonView:FormControl<string>;
+    equal_payments:FormControl<boolean>;
   }> = this.fb.group({
     contractAmount: ['0', [Validators.required]],
     numberOfPayments:[1,[Validators.required]],
@@ -41,7 +42,8 @@ export class DetailsFormComponent implements AfterContentInit {
     paymentAmount:['',[Validators.required]],
     range:['',[Validators.required]],
     firstInvoice:['',Validators.required],
-    jsonView:['',[Validators.required]]
+    jsonView:['',[Validators.required]],
+    equal_payments:[true,[Validators.required]]
   });
  
 
