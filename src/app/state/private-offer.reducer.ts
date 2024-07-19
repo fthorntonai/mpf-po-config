@@ -3,7 +3,7 @@ import { addProperty, removeProperty,updateProperty, reset,initializeState, setS
 
 let baseObject = { "offer": { "contractAmount": "0","firstInvoice":"0", "offerDuration": "0", "numberOfPayments":1 ,
   "paymentFrequency": "", "startDate": "", "endDate": "",   "is_equal_payments": true,
-  "is_invoice_upon_purchase": false,"paymentAmount": "", "range": "", "jsonView": "" } };
+  "is_invoice_upon_purchase": true,"paymentAmount": "", "range": "", "jsonView": "" } };
 export const initialState = baseObject ;
 
 export const privateOfferReducer = createReducer(
@@ -14,6 +14,6 @@ export const privateOfferReducer = createReducer(
  // on(updateProperty, (state) => {return  JSON.parse(JSON.stringify(state))['property'] = 'test'}),
  // on(removeProperty, (state) => {return  JSON.parse(JSON.stringify(state))['property'] = 'test'}),
  on(reset, (state) =>{ return { "offer" :{ "contractAmount": "0","firstInvoice":"0",  "is_equal_payments": true,
-  "is_invoice_upon_purchase": false, "offerDuration": "0","numberOfPayments":1 ,
+  "is_invoice_upon_purchase": true, "offerDuration": "0","numberOfPayments":1 ,
   "paymentFrequency": "", "startDate": "", "endDate": "", "paymentAmount": "", "range": "", "jsonView": "" }}})
 );

@@ -14,7 +14,7 @@
   </article>
 </nz-row>
 <form nz-form [formGroup]="contractDetailForm" (ngSubmit)="submitForm()"
-  (valueChanges)="onChange($event)">
+  (onChange)="onChange($event)">
   <div nz-row [nzGutter]="16">
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">Contract Total</div></div>
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">Number of Payments</div></div>
@@ -25,15 +25,15 @@
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"><nz-form-item>
       <nz-form-control nzErrorTip="Please input your Contract Amount!">
         <nz-input-group nzPrefixIcon="dollar">
-          <input id="contractAmount" formControlName="contractAmount" nz-input placeholder="Contract Amount"
+          <input id="contractAmount" formControlName="contractAmount"  nz-input placeholder="Contract Amount"
             value="$0.00" />
         </nz-input-group>
       </nz-form-control>
     </nz-form-item></div></div>
-    <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"><nz-form-item>
-      <nz-form-control nzErrorTip="Please input your Number of Payments!" (nzOpenChange)="onChange($event)">
+    <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"><nz-form-item >
+      <nz-form-control nzErrorTip="Please input your Number of Payments!" >
         <nz-input-group nzPrefixIcon="number" >
-          <input id="numberOfPayments" formControlName="numberOfPayments" (onChange)="onChange($event)"  nz-input placeholder="Number Of Payments"
+          <input id="numberOfPayments" formControlName="numberOfPayments"  nz-input placeholder="Number Of Payments"
             value="1" />
         </nz-input-group>
       </nz-form-control>
@@ -108,11 +108,14 @@
       </nz-checkbox-wrapper>
     </nz-row>
     <nz-row>
+      <nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="onChange($event)">
+
       <div nz-row [nzGutter]="16">
         <nz-col><label nz-checkbox  formControlName="is_invoice_upon_purchase" id="is_invoice_upon_purchase" >Invoice Upon Purchase</label></nz-col>
         <nz-col></nz-col>
         <nz-col></nz-col>
       </div>
+      </nz-checkbox-wrapper>
     </nz-row>
     <nz-row [nzGutter]="16">
       <button nz-button nzType="primary">Clear Plan</button>

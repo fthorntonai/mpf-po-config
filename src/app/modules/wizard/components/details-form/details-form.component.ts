@@ -51,7 +51,7 @@ export class DetailsFormComponent implements AfterContentInit,OnDestroy {
 
   });
  
-
+  
   onChange(event:any): void {
     this.store.dispatch(setState({offer: this.contractDetailForm.value}));    
   }
@@ -76,8 +76,6 @@ export class DetailsFormComponent implements AfterContentInit,OnDestroy {
   constructor(private fb: NonNullableFormBuilder, private store: Store<{ count: number,privateOffer:object }>) {
     this.count$ = store.select('count');
     this.privateOffer$ = this.store.select('privateOffer');
-    
-    
   }
   ngOnDestroy(): void {
     this.privateOfferSubscription = undefined;
