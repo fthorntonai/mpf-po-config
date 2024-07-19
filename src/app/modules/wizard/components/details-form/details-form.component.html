@@ -16,10 +16,10 @@
 <form nz-form [formGroup]="contractDetailForm" (ngSubmit)="submitForm()"
   (valueChanges)="onChange($event)">
   <div nz-row [nzGutter]="16">
-    <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">Payment Amount</div></div>
+    <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">Contract Total</div></div>
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">Number of Payments</div></div>
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">Payment Frequency</div></div>
-    <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">First Invoice</div></div>
+    <!--div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">First Invoice</div></div-->
   </div>
   <div nz-row [nzGutter]="16">
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"><nz-form-item>
@@ -44,15 +44,15 @@
           <nz-select formControlName="paymentFrequency" id="paymentFrequency" (nzOpenChange)="onChange($event)"
             nzPlaceHolder="Select a Contract Terms" nzBorderless>
             <nz-option nzLabel="Select Payment Frequency" nzValue="0"></nz-option>
-            <nz-option nzLabel="One Time" nzValue="once"></nz-option>
-            <nz-option nzLabel="Monthly" nzValue="month"></nz-option>
-            <nz-option nzLabel="Yearly" nzValue="year"></nz-option>
-            <nz-option nzLabel="Other" nzValue="37"></nz-option>
+            <nz-option nzLabel="One Time" nzValue="One Time"></nz-option>
+            <nz-option nzLabel="Monthly" nzValue="Monthly"></nz-option>
+            <nz-option nzLabel="Yearly" nzValue="Yearly"></nz-option>
+            <nz-option nzLabel="Other" nzValue="Other"></nz-option>
           </nz-select>
         </nz-input-group>
       </nz-form-control>
     </nz-form-item></div></div>
-    <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"><nz-form-item>
+    <!--div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"><nz-form-item>
       <nz-form-control nzErrorTip="First Invoice">
         <nz-input-group nzPrefixIcon="retweet">
           <nz-select formControlName="firstInvoice" id="firstInvoice" (nzOpenChange)="onChange($event)"
@@ -65,7 +65,7 @@
           </nz-select>
         </nz-input-group>
       </nz-form-control>
-    </nz-form-item></div></div>
+    </nz-form-item></div></div-->
   </div>
   <nz-row >
 
@@ -97,23 +97,29 @@
     </nz-row>
     <nz-row>
       <div nz-row [nzGutter]="16">
-        <nz-col><label nz-checkbox formControlName="equal_payments"  [(ngModel)]="checked ">All Payment Amounts are Equal</label></nz-col>
+        <nz-col><label nz-checkbox formControlName="is_equal_payments" id="is_equal_payments" >All Payment Amounts are Equal</label></nz-col>
+        <nz-col>{{ checked}}</nz-col>
+        <nz-col></nz-col>
+      </div>
+    </nz-row>
+    <nz-row>
+      <div nz-row [nzGutter]="16">
+        <nz-col><label nz-checkbox  formControlName="is_invoice_upon_purchase" id="is_invoice_upon_purchase" >Invoice Upon Purchase</label></nz-col>
         <nz-col></nz-col>
         <nz-col></nz-col>
       </div>
     </nz-row>
     <nz-row [nzGutter]="16">
-      <button nz-button nzType="primary">Generate Configuration Plan</button> &nbsp; &nbsp; &nbsp;
       <button nz-button nzType="primary">Clear Plan</button>
     </nz-row>
 
 
 
-  <!--nz-row>
-  <nz-input-group [nzSuffix]="">
+  <nz-row>
+  <!--nz-input-group [nzSuffix]="">
     <textarea rows="15" id="contractDetailsValue"  nz-input [value]="(contractDetailForm.value | json)"></textarea>
-  </nz-input-group>
-</nz-row-->
+  </nz-input-group-->
+</nz-row>
 </form>
 
 <!--nz-row>

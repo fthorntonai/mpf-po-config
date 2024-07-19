@@ -16,12 +16,19 @@ export class RecommendedConfigurationComponent implements OnDestroy {
   protected _paymentFrequency: string;
   protected _ppPayment:number = 0;
   protected _billingTerm:string = "";
+  protected _conforming = true;
+  protected _numberOfPayments = 1;
+  protected _contract_total = 0;
   constructor(private store: Store<{ count: number,privateOffer:object }>) {
     this._paymentFrequency = "1 Year";
     this.privateOffer$ = this.store.select('privateOffer');
     this.privateOffer$.subscribe((value)=>{
-      this._ppPayment = 3300;
+      this._ppPayment =JSON.parse(JSON.stringify(value))['offer']['contractAmount'] / JSON.parse(JSON.stringify(value))['offer']['numberOfPayments'];
       this._billingTerm = JSON.parse(JSON.stringify(value))['offer']['paymentFrequency'];
+      this._conforming = JSON.parse(JSON.stringify(value))['offer']['is_equal_payments'];
+      this._numberOfPayments = JSON.parse(JSON.stringify(value))['offer']['numberOfPayments'];
+      this._contract_total = JSON.parse(JSON.stringify(value))['offer']['contractAmount'];
+
     });
 
     

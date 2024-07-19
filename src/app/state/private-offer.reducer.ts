@@ -2,7 +2,8 @@ import { createReducer, on } from '@ngrx/store';
 import { addProperty, removeProperty,updateProperty, reset,initializeState, setState } from './private-offer.action';
 
 let baseObject = { "offer": { "contractAmount": "0","firstInvoice":"0", "offerDuration": "0", "numberOfPayments":1 ,
-  "paymentFrequency": "", "startDate": "", "endDate": "", "paymentAmount": "", "range": "", "jsonView": "" } };
+  "paymentFrequency": "", "startDate": "", "endDate": "",   "is_equal_payments": true,
+  "is_invoice_upon_purchase": false,"paymentAmount": "", "range": "", "jsonView": "" } };
 export const initialState = baseObject ;
 
 export const privateOfferReducer = createReducer(
@@ -12,6 +13,7 @@ export const privateOfferReducer = createReducer(
  // on(addProperty, (state) => {return  JSON.parse(JSON.stringify(state))['property'] = 'test'}),
  // on(updateProperty, (state) => {return  JSON.parse(JSON.stringify(state))['property'] = 'test'}),
  // on(removeProperty, (state) => {return  JSON.parse(JSON.stringify(state))['property'] = 'test'}),
- on(reset, (state) =>{ return { "offer" :{ "contractAmount": "0","firstInvoice":"0", "offerDuration": "0","numberOfPayments":1 ,
+ on(reset, (state) =>{ return { "offer" :{ "contractAmount": "0","firstInvoice":"0",  "is_equal_payments": true,
+  "is_invoice_upon_purchase": false, "offerDuration": "0","numberOfPayments":1 ,
   "paymentFrequency": "", "startDate": "", "endDate": "", "paymentAmount": "", "range": "", "jsonView": "" }}})
 );
