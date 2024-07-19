@@ -96,11 +96,16 @@
       
     </nz-row>
     <nz-row>
+      <nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="onChange($event)">
+
       <div nz-row [nzGutter]="16">
+   
         <nz-col><label nz-checkbox formControlName="is_equal_payments" id="is_equal_payments" >All Payment Amounts are Equal</label></nz-col>
-        <nz-col>{{ checked}}</nz-col>
+
+        <nz-col></nz-col>
         <nz-col></nz-col>
       </div>
+      </nz-checkbox-wrapper>
     </nz-row>
     <nz-row>
       <div nz-row [nzGutter]="16">

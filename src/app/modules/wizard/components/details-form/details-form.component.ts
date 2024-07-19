@@ -1,4 +1,4 @@
-import { AfterContentInit, Component } from '@angular/core';
+import { AfterContentInit, Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { endOfMonth } from 'date-fns';
@@ -11,9 +11,10 @@ import { initializeState, setState } from '../../../../state/private-offer.actio
   templateUrl: './details-form.component.html',
   styleUrl: './details-form.component.scss'
 })
-export class DetailsFormComponent implements AfterContentInit {
+export class DetailsFormComponent implements AfterContentInit,OnDestroy {
   count$: Observable<number>;
   privateOffer$: Observable<object>;
+  privateOfferSubscription :any|undefined = undefined;
   checked = true;
   ranges = { Today: [new Date(), new Date()], 'This Month': [new Date(), endOfMonth(new Date())] };
 
@@ -75,14 +76,18 @@ export class DetailsFormComponent implements AfterContentInit {
   constructor(private fb: NonNullableFormBuilder, private store: Store<{ count: number,privateOffer:object }>) {
     this.count$ = store.select('count');
     this.privateOffer$ = this.store.select('privateOffer');
-
+    
     
   }
+  ngOnDestroy(): void {
+    this.privateOfferSubscription = undefined;
+  }
   ngAfterContentInit(): void {
-    this.privateOffer$ = this.store.select('privateOffer');
-    console.log(this.privateOffer$);
+    
     this.privateOffer$.pipe(map((i)=>{
       this.contractDetailForm.setValue(JSON.parse(JSON.stringify(i))['offer']);
-    })).subscribe(); }
+    })).subscribe(); 
+
+  }
 
 }
