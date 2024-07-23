@@ -15,5 +15,5 @@ export const privateOfferReducer = createReducer(
  // on(removeProperty, (state) => {return  JSON.parse(JSON.stringify(state))['property'] = 'test'}),
  on(reset, (state) =>{ return { "offer" :{ "contractAmount": "0","firstInvoice":"0",  "is_equal_payments": true,
   "is_invoice_upon_purchase": true, "offerDuration": "0","numberOfPayments":1 ,
-  "paymentFrequency": "", "startDate": "", "endDate": "", "paymentAmount": "", "range": "", "jsonView": "" }}})
+  "paymentFrequency": "", "startDate": Date.now().toString(), "endDate": "", "paymentAmount": "", "range": "", "jsonView": "" }}})
 );

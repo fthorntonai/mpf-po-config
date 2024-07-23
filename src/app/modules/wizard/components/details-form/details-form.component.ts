@@ -15,7 +15,7 @@ export class DetailsFormComponent implements OnInit, AfterContentInit,OnDestroy 
   count$: Observable<number>;
   privateOffer$: Observable<object>;
   privateOfferSubscription :any|undefined = undefined;
-  
+  today = Date.now();
   checked = true;
   ranges = { Today: [new Date(), new Date()], 'This Month': [new Date(), endOfMonth(new Date())] };
 
@@ -27,7 +27,7 @@ export class DetailsFormComponent implements OnInit, AfterContentInit,OnDestroy 
     numberOfPayments: FormControl<number>;
     paymentFrequency: FormControl<string>;
     offerDuration: FormControl<string>;
-    startDate: FormControl<string>;
+    startDate: FormControl<number>;
     endDate: FormControl<string>;
     paymentAmount: FormControl<string>;
     range:FormControl<string>;
@@ -41,7 +41,7 @@ export class DetailsFormComponent implements OnInit, AfterContentInit,OnDestroy 
     numberOfPayments:[1,[Validators.required]],
     paymentFrequency:['',[Validators.required]],
     offerDuration: ['0', [Validators.required]],
-    startDate: ['',[Validators.required]],
+    startDate: [this.today,[Validators.required]],
     endDate:['',[Validators.required]],
     paymentAmount:['',[Validators.required]],
     range:['',[Validators.required]],

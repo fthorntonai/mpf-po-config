@@ -19,7 +19,7 @@
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">Contract Total</div></div>
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">Number of Payments</div></div>
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">Payment Frequency</div></div>
-    <!--div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">First Invoice</div></div-->
+    <!--div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">Start Date</div></div-->
   </div>
   <div nz-row [nzGutter]="16">
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"><nz-form-item>
@@ -37,7 +37,9 @@
             value="1" />
         </nz-input-group>
       </nz-form-control>
-    </nz-form-item></div></div>
+    </nz-form-item>
+  </div>
+</div>
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box">  <nz-form-item>
       <nz-form-control nzErrorTip="Please select Payment Frequency">
         <nz-input-group nzPrefixIcon="retweet">
@@ -51,7 +53,14 @@
           </nz-select>
         </nz-input-group>
       </nz-form-control>
-    </nz-form-item></div></div>
+    </nz-form-item>
+  </div> 
+  </div>
+  <div>     
+    <div>
+      <!--nz-date-picker formControlName="startDate" id="startDate"  (blur)="onBlur($event)"></nz-date-picker-->
+ 
+    </div>    </div>
     <!--div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"><nz-form-item>
       <nz-form-control nzErrorTip="First Invoice">
         <nz-input-group nzPrefixIcon="retweet">
@@ -90,11 +99,14 @@
 
     <!--nz-row [nzGutter]="16">
       <nz-form-item>
+        <nz-date-picker formControlName="startDate" id="startDate" (ngModelChange)="onChange($event)"></nz-date-picker>
+
         <nz-range-picker id="dateRange" formControlName="range" [nzRanges]="ranges" onchange="onChange($event)" ></nz-range-picker>
       </nz-form-item>
-      <nz-row-->
+      <nz-row>
       
     </nz-row>
+ 
     <nz-row>
       <nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="onChange($event)">
 
@@ -124,7 +136,7 @@
 
 
   <nz-row>
-  <!--nz-input-group [nzSuffix]="">
+  <nz-input-group [nzSuffix]="">
     <textarea rows="15" id="contractDetailsValue"  nz-input [value]="(contractDetailForm.value | json)"></textarea>
   </nz-input-group-->
 </nz-row>
