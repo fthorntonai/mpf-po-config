@@ -25,7 +25,7 @@
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"><nz-form-item>
       <nz-form-control nzErrorTip="Please input your Contract Amount!">
         <nz-input-group nzPrefixIcon="dollar">
-          <input id="contractAmount" formControlName="contractAmount"  nz-input placeholder="Contract Amount"
+          <input id="contractAmount" formControlName="contractAmount" (blur)="onBlur($event)"   nz-input placeholder="Contract Amount"
             value="$0.00" />
         </nz-input-group>
       </nz-form-control>
@@ -33,7 +33,7 @@
     <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"><nz-form-item >
       <nz-form-control nzErrorTip="Please input your Number of Payments!" >
         <nz-input-group nzPrefixIcon="number" >
-          <input id="numberOfPayments" formControlName="numberOfPayments"  nz-input placeholder="Number Of Payments"
+          <input id="numberOfPayments" formControlName="numberOfPayments" (blur)="onBlur($event)" nz-input placeholder="Number Of Payments"
             value="1" />
         </nz-input-group>
       </nz-form-control>

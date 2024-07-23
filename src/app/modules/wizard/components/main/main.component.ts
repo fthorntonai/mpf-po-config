@@ -80,8 +80,8 @@ export class MainComponent implements AfterViewInit  {
         break;
       }
       case 1: {
-        //this.addPaymentComponent();
-        this.addRecConfgComponent();
+        this.addPaymentComponent();
+        //this.addRecConfgComponent();
 
         break;
       }

@@ -1,5 +1,7 @@
-<div class="btn-wrapper" nz-flex [nzGap]="'middle'" [nzWrap]="'wrap'">
+<div class="btn-wrapper" nz-flex [nzGap]="'middle'" [nzWrap]="'wrap'" style="padding-top: 30px;">
     @for (_ of array; track _) {
-      <button style="width: 100px" nz-button nzType="primary">Payment {{ _ }}</button>
+
+      <button nz-button nz-popover nzType="primary" nzPopoverTitle="Payment {{ _ }}" nzPopoverContent="{{ paymentAmount | currency }} Due: {{ today | date}}">Payment {{ _ }}</button>
+
     }
   </div>

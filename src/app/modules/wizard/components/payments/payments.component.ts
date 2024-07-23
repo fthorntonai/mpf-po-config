@@ -12,6 +12,9 @@ import { map, Observable, take } from 'rxjs';
 export class PaymentsComponent implements AfterContentInit {
   paymentCount = 0;
   privateOffer$: Observable<object>;
+  paymentAmount = 0;
+  today: number = Date.now();
+  
   _store:Store<{ privateOffer: object; }> | undefined;
 
    array:any[]=[];
@@ -27,6 +30,7 @@ export class PaymentsComponent implements AfterContentInit {
   ngOnInit(): void {
     this.privateOffer$.pipe(map((i)=>{
       this.paymentCount = JSON.parse(JSON.stringify(i))['offer']['numberOfPayments'];
+      this.paymentAmount = JSON.parse(JSON.stringify(i))['offer']['contractAmount']/this.paymentCount;
     })).subscribe();
   }
 

@@ -1,8 +1,8 @@
-import { AfterContentInit, Component, OnDestroy } from '@angular/core';
+import { AfterContentInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { endOfMonth } from 'date-fns';
-import { map, Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { increment,decrement,reset } from '../../../../state/counter.actions';
 import { initializeState, setState } from '../../../../state/private-offer.action';
 
@@ -11,10 +11,11 @@ import { initializeState, setState } from '../../../../state/private-offer.actio
   templateUrl: './details-form.component.html',
   styleUrl: './details-form.component.scss'
 })
-export class DetailsFormComponent implements AfterContentInit,OnDestroy {
+export class DetailsFormComponent implements OnInit, AfterContentInit,OnDestroy {
   count$: Observable<number>;
   privateOffer$: Observable<object>;
   privateOfferSubscription :any|undefined = undefined;
+  
   checked = true;
   ranges = { Today: [new Date(), new Date()], 'This Month': [new Date(), endOfMonth(new Date())] };
 
@@ -51,6 +52,9 @@ export class DetailsFormComponent implements AfterContentInit,OnDestroy {
 
   });
  
+  onBlur(event:any){
+    this.store.dispatch(setState({offer: this.contractDetailForm.value}));    
+  }
   
   onChange(event:any): void {
     this.store.dispatch(setState({offer: this.contractDetailForm.value}));    
@@ -76,9 +80,17 @@ export class DetailsFormComponent implements AfterContentInit,OnDestroy {
   constructor(private fb: NonNullableFormBuilder, private store: Store<{ count: number,privateOffer:object }>) {
     this.count$ = store.select('count');
     this.privateOffer$ = this.store.select('privateOffer');
+  
+    
+  }
+  ngOnInit(): void {
+   /* this.contractDetailForm.valueChanges.subscribe((data)=>{
+      console.log(data);
+    });
+*/
   }
   ngOnDestroy(): void {
-    this.privateOfferSubscription = undefined;
+    
   }
   ngAfterContentInit(): void {
     

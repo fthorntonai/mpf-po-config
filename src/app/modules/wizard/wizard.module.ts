@@ -19,6 +19,7 @@ import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { RecommendedConfigurationComponent } from './components/recommended-configuration/recommended-configuration.component';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
     NzDividerModule,
     NzTagModule,
     NzFlexModule,
+    NzPopoverModule,
     NzDatePickerModule,
     NzInputNumberModule,
     WizardRoutingModule,
