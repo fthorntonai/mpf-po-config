@@ -14,17 +14,25 @@ export class PaymentsComponent implements AfterContentInit {
   privateOffer$: Observable<object>;
   paymentAmount = 0;
   today: number = Date.now();
-  
+
   _store:Store<{ privateOffer: object; }> | undefined;
 
    array:any[]=[];
+   paymentDate:any[]=[]
    constructor(private fb: NonNullableFormBuilder, private store: Store<{ count: number,privateOffer:object }>) {
     this.privateOffer$ = this.store.select('privateOffer');
 
  
   }
   ngAfterContentInit(): void {
-    this.array = Array.from({ length: this.paymentCount }, (_, index) => index + 1);
+    this.array = Array.from({ length: this.paymentCount }, (_, index) => {index + 1});
+
+    this.paymentDate = Array.from({ length: this.paymentCount }, (_, index) => {
+     var counter = index + 1;
+     var date = new Date();
+     return new Date(date.setMonth(date.getMonth() + counter));
+
+    });
 
   }
   ngOnInit(): void {

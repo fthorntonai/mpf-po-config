@@ -1,7 +1,9 @@
 <div class="btn-wrapper" nz-flex [nzGap]="'middle'" [nzWrap]="'wrap'" style="padding-top: 30px;">
-    @for (_ of array; track _) {
-
-      <button nz-button nz-popover nzType="primary" nzPopoverTitle="Payment {{ _ }}" nzPopoverContent="{{ paymentAmount | currency }} Due: {{ today | date}}">Payment {{ _ }}</button>
-
+    @for (_ of array; track _;let  i = $index) {
+      <nz-button-group>
+        <button nz-button><span nz-icon nzType="edit" nzTheme="outline"></span></button>
+        <button nz-button nz-popover nzType="primary" nzPopoverTitle="Payment {{ i+1 }}" nzPopoverContent="{{ paymentAmount | currency }} Due: {{ paymentDate[i] | date:'MM/YYYY' }}">Payment {{ i + 1 }}</button>
+      </nz-button-group>
+     
     }
   </div>

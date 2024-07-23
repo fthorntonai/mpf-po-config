@@ -20,6 +20,9 @@ import { RecommendedConfigurationComponent } from './components/recommended-conf
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { NzPopoverModule } from 'ng-zorro-antd/popover';
     NzSelectModule,
     NzFormModule,
     NzGridModule,
+    NzIconModule,
     NzInputModule,
     NzStatisticModule,
     NzCheckboxModule,
@@ -45,6 +49,7 @@ import { NzPopoverModule } from 'ng-zorro-antd/popover';
     NzPopoverModule,
     NzDatePickerModule,
     NzInputNumberModule,
+    NzButtonModule,
     WizardRoutingModule,
     
   ]
