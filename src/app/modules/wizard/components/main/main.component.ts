@@ -13,8 +13,8 @@ import { RecommendedConfigurationComponent } from '../recommended-configuration/
 export class MainComponent implements AfterViewInit  {
 
   @ViewChild('stepContainer', { read: ViewContainerRef }) viewContainerRef: ViewContainerRef | undefined;
-  @ViewChild('steps', { read: ViewContainerRef }) stepsVCref: ViewContainerRef | undefined;
-  @ViewChild('stepAction', { read: ViewContainerRef }) stepActionsVCref: ViewContainerRef | undefined;
+  @ViewChild('steps', { read: ViewContainerRef,static:false }) stepsVCref: ViewContainerRef | undefined;
+  @ViewChild('stepAction', { read: ViewContainerRef,static:false }) stepActionsVCref: ViewContainerRef | undefined;
 
   @ViewChild(TemplateRef) template: any;
 
@@ -27,10 +27,12 @@ export class MainComponent implements AfterViewInit  {
 
   constructor(private cd: ChangeDetectorRef, private store: Store<{ count: number,privateOffer:object }>) {
     this.privateOffer$ = this.store.select('privateOffer');
-
     
   }
   ngAfterViewInit(): void {
+    console.log(this.stepsVCref?.element.nativeElement);
+    this.stepsVCref?.element.nativeElement;
+
     this.addDetailComponent();
     this.cd.detectChanges();
     }
