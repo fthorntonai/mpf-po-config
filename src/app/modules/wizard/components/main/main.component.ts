@@ -14,6 +14,7 @@ export class MainComponent implements AfterViewInit  {
 
   @ViewChild('stepContainer', { read: ViewContainerRef }) viewContainerRef: ViewContainerRef | undefined;
   @ViewChild('steps', { read: ViewContainerRef }) stepsVCref: ViewContainerRef | undefined;
+  @ViewChild('stepAction', { read: ViewContainerRef }) stepActionsVCref: ViewContainerRef | undefined;
 
   @ViewChild(TemplateRef) template: any;
 

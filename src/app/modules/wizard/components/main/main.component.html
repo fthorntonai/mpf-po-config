@@ -9,6 +9,7 @@
   </div-->
   <div nz-col [nzSpan]="18" >
      <nz-steps [nzCurrent]="current" nzDirection="horizontal" nzSize="small" #steps>
+      <!--nz-step nzTitle="Eligible-Private Offers"></nz-step-->
       <nz-step nzTitle="Deal Details"></nz-step>
       <nz-step nzTitle="Payment Details"></nz-step>
       <nz-step nzTitle="Recomended Configuration"></nz-step>
@@ -16,7 +17,7 @@
     </nz-steps>
       <div #stepContainer></div>
     
-    <div class="steps-action">
+    <div class="steps-action" #stepAction>
       <button nz-button nzType="default" (click)="pre()" *ngIf="current > 0">
         <span>Modify Plan</span>
       </button>
