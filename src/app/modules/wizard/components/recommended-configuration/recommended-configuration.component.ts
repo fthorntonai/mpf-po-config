@@ -28,10 +28,10 @@ export class RecommendedConfigurationComponent implements OnDestroy {
       this._billingTerm = JSON.parse(JSON.stringify(value))['offer']['paymentFrequency'];
 
       switch(this._billingTerm){
-        case 'year':
+        case 'Yearly':
          // this.endDate = 
           break;
-        case 'month':
+        case 'Monthly':
           break;
       }
       
@@ -48,7 +48,7 @@ export class RecommendedConfigurationComponent implements OnDestroy {
       }
 
         switch(this._billingTerm){
-          case 'month' :
+          case 'Monthly' :
             const now = new Date();
             console.log(now);
             console.log(this._numberOfPayments)
@@ -58,7 +58,7 @@ export class RecommendedConfigurationComponent implements OnDestroy {
             console.log(this._billingTerm);
             console.log(this.endDate);
            break;
-          case 'year' :
+          case 'Yearly' :
             const yearNow = new Date();
             console.log(yearNow);
             const addYears = date.addYears(yearNow, Number(this._numberOfPayments));

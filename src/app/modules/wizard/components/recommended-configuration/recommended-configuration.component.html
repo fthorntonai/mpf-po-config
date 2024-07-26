@@ -9,7 +9,7 @@
     
     <nz-divider nzOrientation="left" nzText="Recommendations"></nz-divider>
     <ul dir="auto">
-        <li>Model this deal with a single private offers, create a private offer on the same public plan (&#64;term term).
+        <li>Model this deal with a single private offers, create a private offer on the same public plan (<nz-tag [nzColor]="'green'">Billing term</nz-tag>:<nz-tag [nzColor]="'blue'" title="">{{_billingTerm}}</nz-tag>).
         Note, this example assumes customer will subscribe in the <nz-tag [nzColor]="'green'">Month</nz-tag>:<nz-tag [nzColor]="'blue'">{{ today | date:'MMM'}}</nz-tag> of <nz-tag [nzColor]="'green'">Year</nz-tag>:<nz-tag [nzColor]="'blue'">{{ today | date:'YYYY'}}</nz-tag>.
         &nbsp;
         Private Offer #1 for the first year
