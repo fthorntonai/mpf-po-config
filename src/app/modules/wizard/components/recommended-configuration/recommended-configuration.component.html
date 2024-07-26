@@ -15,7 +15,7 @@
         Private Offer #1 for the first year
         <ul dir="auto">
         <li><nz-tag [nzColor]="'green'">Start date</nz-tag>: <nz-tag [nzColor]="'blue'">{{ today | date:'MMM'}}</nz-tag> of <nz-tag [nzColor]="'blue'">{{ today | date:'YYYY'}}</nz-tag> or <nz-tag [nzColor]="'blue'">Accepted date</nz-tag></li>
-        <li><nz-tag [nzColor]="'green'" title="(&#64;thisYear + (&#64;term * &#64;numberOfPayments)">End date</nz-tag>: <nz-tag [nzColor]="'blue'">{{ today | date:'MMM'}}</nz-tag> of <nz-tag [nzColor]="'blue'">{{ endDateYear}}</nz-tag></li>
+        <li><nz-tag [nzColor]="'green'" title="(&#64;thisYear + (&#64;term * &#64;numberOfPayments)">End date</nz-tag>: <nz-tag [nzColor]="'blue'">{{ endDate | date:'MMM'}}</nz-tag> of <nz-tag [nzColor]="'blue'">{{ endDate| date: 'YYYY'}}</nz-tag></li>
         <li><nz-tag [nzColor]="'green'">Billing term</nz-tag>:<nz-tag [nzColor]="'blue'" title="">{{_billingTerm}}</nz-tag></li>
         <li><nz-tag [nzColor]="'green'">Price per payment</nz-tag>: <nz-tag [nzColor]="'blue'" title="&#64;totalAmount / &#64;numberOfPayments">{{ _ppPayment | currency}}</nz-tag></li>
         </ul>

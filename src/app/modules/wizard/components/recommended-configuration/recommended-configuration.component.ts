@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import date from 'date-and-time';
 
 @Component({
   selector: 'app-recommended-configuration',
@@ -13,6 +14,7 @@ export class RecommendedConfigurationComponent implements OnDestroy {
   protected todayYear = new Date().getFullYear();
   protected todayMonth = new Date().getMonth();
   protected endDateYear : number = this.todayYear;
+  protected endDate: number | Date = this.today;
   protected _ppPayment:number = 0;
   protected _billingTerm:string = "";
   protected _conforming = true;
@@ -27,10 +29,12 @@ export class RecommendedConfigurationComponent implements OnDestroy {
 
       switch(this._billingTerm){
         case 'year':
+         // this.endDate = 
           break;
         case 'month':
           break;
       }
+      
       
       this._ppPayment =JSON.parse(JSON.stringify(value))['offer']['contractAmount'] / JSON.parse(JSON.stringify(value))['offer']['numberOfPayments'];
       
@@ -43,20 +47,30 @@ export class RecommendedConfigurationComponent implements OnDestroy {
         this._conforming = false;
       }
 
-      if(this._numberOfPayments > 12 ){
         switch(this._billingTerm){
           case 'month' :
-           this.endDateYear = this.todayYear + Math.trunc( Number(this._numberOfPayments) / 12);
+            const now = new Date();
+            console.log(now);
+            console.log(this._numberOfPayments)
+            const addMonths = date.addMonths(now, Number(this._numberOfPayments));
+            console.log(addMonths);
+            this.endDate = addMonths
+            console.log(this._billingTerm);
+            console.log(this.endDate);
            break;
           case 'year' :
-            this.endDateYear = this.todayYear +  Number(this._numberOfPayments);
-            break;
+            const yearNow = new Date();
+            console.log(yearNow);
+            const addYears = date.addYears(yearNow, Number(this._numberOfPayments));
+            console.log(addYears);
+            this.endDate = addYears;
+            console.log(this._billingTerm);
+            console.log(this.endDate);
+              break;
           default:
-            this.endDateYear = this.todayYear + Math.trunc( Number(this._numberOfPayments) / 12);
+            //this.endDate = this.todayYear + Math.trunc( Number(this._numberOfPayments) / 12);
            break;
         }
-
-      }
 
     });
 
